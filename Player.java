@@ -16,10 +16,10 @@
  -░░░░░░░██░░░░░█▄▄▀▀░█░░░░░░
  -░░░░░░░░▀▀█▀▀▀▀░░░░░░█░░░░░
  -░░░░░░░░░█░░░░░░░░░░░░█░░░░*/
-public Class Player
+public class Player
 {
   String m_name;
-  public Player
+  public Player()
   {
     m_name = "Player";
   }
