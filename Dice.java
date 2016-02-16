@@ -30,6 +30,6 @@ public class Dice
     }
     public String toString()
     {
-        return this.m_die1 + "," + this.m_die2;
+        return m_die1 + "," + m_die2;
     }
 }
