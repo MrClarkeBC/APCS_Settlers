@@ -4,4 +4,9 @@ public class Settlers
   {
      
   }
+  public void main(String[] args)
+  {
+    Settlers s1 = new Settlers();
+  }
+  
 }
