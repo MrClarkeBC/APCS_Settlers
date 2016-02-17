@@ -23,4 +23,6 @@ Repository for class settlers project.
 "You don't want it to cancel."
 "That's my pheta."
 " [Jack], You blow me away sometimes, you're so quick."   -Steven Brent Barker
+ヽ༼ຈل͜ຈ༽ﾉ ༼ ºل͟º ༽ ୧༼ ͡◉ل͜ ͡◉༽୨ (ง ͠° ل͜ °)ง ヽ༼ʘ̚ل͜ʘ̚༽ﾉ୧༼ಠ益ಠ༽୨乁( ◔ ౪◔)ㄏ
+─=≡Σ((( つ◕ل͜◕)つ (ง •̀_•́)ง┌(° ͜ʖ͡°)┘(ง ͠ ͠° ل͜ °)งᕙ༼◕ل͜◕༽ᕗ 
 
