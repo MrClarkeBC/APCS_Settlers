@@ -1,8 +1,8 @@
 # APCS_Settlers
 Repository for class settlers project.
 "I don't always know the answer right away."
-"Never trust a textbook, that's just life."
-"The more we argur actually, the better we learn."
+"Never trust a textbook, that's just life." \n
+"The more we argue actually, the better we learn." \n
 "You can replace the antelope with yourself."
 "I just have bowling balls everywhere!"
 "I made it be greater."
