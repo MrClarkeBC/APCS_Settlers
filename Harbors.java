@@ -1,16 +1,20 @@
 
 public class Harbors
 {
-    boolean m_is2For1;
+    Resource m_type;
     public static void main(String[] args) 
     {
     }
 
-    public Harbors(boolean is2For1)
+    public Harbors( Resource type)
     {
-        m_is2For1 = is2For1;
+        m_type = type;
     }
 
+public String toString()
+{
+    return(m_type + "harbor");
+}
     /*   public Resource tradeIn(Resource give)
     {
     (if(m_is2For1)
@@ -21,3 +25,4 @@ public class Harbors
     }
      */
 }
+
