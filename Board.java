@@ -5,4 +5,9 @@ Tile[]  m_board = new Tile[19];
     {
 
     }
+    
+    public Board setUpBoard()
+    {
+        
+    }
 }
