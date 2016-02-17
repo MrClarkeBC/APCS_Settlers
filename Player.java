@@ -18,6 +18,9 @@
  -░░░░░░░░░█░░░░░░░░░░░░█░░░░*/
 public class Player
 {
+ int m_vpoints;
+ DevCard[] m_devcards = new DevCard[];
+ Resource[] m_resources = new Resource[];
   String m_name;
   public Player()
   {
@@ -27,4 +30,7 @@ public class Player
   {
     return m_name;
   }
+  
+  public int getPoints(){return m_vpoints;}
+  
 }
