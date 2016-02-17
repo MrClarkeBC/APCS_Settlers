@@ -1,6 +1,6 @@
-public class Board extends Tile
+public class Board 
 {
-Tile[]  m_board = new Tile[];
+Tile[]  m_board = new Tile[19];
     public Board()
     {
 
