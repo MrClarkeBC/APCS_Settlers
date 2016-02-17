@@ -1,8 +1,8 @@
 # APCS_Settlers
 Repository for class settlers project.
 "I don't always know the answer right away."
-"Never trust a textbook, that's just life." \n
-"The more we argue actually, the better we learn." \n
+"Never trust a textbook, that's just life."
+"The more we argue actually, the better we learn."
 "You can replace the antelope with yourself."
 "I just have bowling balls everywhere!"
 "I made it be greater."
@@ -22,6 +22,5 @@ Repository for class settlers project.
 "I'm a mallwalker, that's what I do."
 "You don't want it to cancel."
 "That's my pheta."
-" [Jack], You blow me away sometimes, you're so quick."
-                                                                       -Steven Brent Barker
+" [Jack], You blow me away sometimes, you're so quick."   -Steven Brent Barker
 
