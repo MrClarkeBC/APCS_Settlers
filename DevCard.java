@@ -1,4 +1,4 @@
-Public class DevCard
+public class DevCard
 {
   public DevCard()
   {
