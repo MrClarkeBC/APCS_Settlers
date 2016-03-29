@@ -103,7 +103,7 @@ class Player extends Polygon
         g.drawString(text, x + 5, y + 10);
         for(SOC.resource r : SOC.resource.values())
         {
-            if (r != SOC.resource.EMPTY)
+            if (r != SOC.resource.EMPTY && r != SOC.resource.DESERT)
             {
                 text = String.format("%s:%d",r, numResource(r));
                 g.drawString(text, x + 5, y + offset);
