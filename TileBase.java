@@ -87,13 +87,13 @@ public class TileBase extends Polygon
             g.drawPolygon(xpoints, ypoints, npoints);
 
 
-        if (resource != SOC.resource.EMPTY)
-        {
+        if (resource != SOC.resource.EMPTY){
             FontMetrics metrics = g.getFontMetrics();
             g.setColor(new Color(0xFFFFFF));
             String text = String.format("%s",number);
             int w = metrics.stringWidth(text);
             int h = metrics.getHeight();
+        if(resource != SOC.resource.DESERT)
             g.drawString(text, center.x - w/2, center.y - h/2);
 
             text = String.format("%s",resource);
