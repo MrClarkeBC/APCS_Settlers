@@ -35,6 +35,7 @@ public class Main extends JPanel
     {
         m_board.nextPlayer();
         jButton1.setBackground(m_board.currentPlayer().getColor());
+        getParent().repaint();
     }
 
     @Override
