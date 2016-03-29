@@ -203,7 +203,8 @@ class Player extends Polygon
     {
         System.out.println(m_name + " got " + count + " " + r);
         for (int i = 0;i<count; i++)
-            m_resources.add(r);
+           if (r != SOC.resource.DESERT)
+                m_resources.add(r);
     }
 
     void removeResource(SOC.resource s)
