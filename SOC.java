@@ -10,7 +10,7 @@ public class SOC
     /// Don't change these
     public enum resource
     {
-        EMPTY, DESERT, SHEEP, ORE, WOOD, WHEAT, BRICK
+        EMPTY, DESERT, SHEEP, ORE, WOOD, WHEAT, BRICK, PORTSHEEP, PORTORE, PORTWOOD, PORTWHEAT, PORTBRICK, PORTANY
     }
     public enum buildType
     {
