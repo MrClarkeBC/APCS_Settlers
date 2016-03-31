@@ -24,26 +24,26 @@ public class TileBase extends Polygon
         switch (r)
         {
             case WOOD:
-            this.colorValue = 0x008844;
+            this.colorValue = 0x083F23;
             break;
             case SHEEP:
-            this.colorValue = 0x33FF33;
+            this.colorValue = 0xFFFFFF;
             break;
             case ORE:
             this.colorValue = 0xCCCCCC;
             break;
             case WHEAT:
-            this.colorValue = 0xFFCC33;
+            this.colorValue = 0xFFD860;
             break;
             case BRICK:
-            this.colorValue = 0xCC3300;
+            this.colorValue = 0x902400;
             break;
             case DESERT:
-            this.colorValue = 0xFFFF00;
+            this.colorValue = 0xF8F87C;
             break;
 
             case EMPTY:
-            this.colorValue = 0x4488FF;
+            this.colorValue = 0x0042B3;
         }
         updatePoints();
     }
