@@ -119,7 +119,7 @@ class Player extends Polygon
         g.setStroke(tmpS);
     }
 
-    boolean build(SOC.buildType b)
+   boolean build(SOC.buildType b)
     {
         if (canBuild(b))
         {
@@ -135,7 +135,6 @@ class Player extends Polygon
                 m_resources.remove(SOC.resource.WHEAT);
                 m_resources.remove(SOC.resource.BRICK);
                 m_resources.remove(SOC.resource.SHEEP);
-                 vp++;
                 break;
 
                 case CITY:
@@ -144,7 +143,12 @@ class Player extends Polygon
                 m_resources.remove(SOC.resource.ORE);
                 m_resources.remove(SOC.resource.WHEAT);
                 m_resources.remove(SOC.resource.WHEAT);
-                 vp++;
+                break;
+
+                case DEVCARD:
+                m_resources.remove(SOC.resource.ORE);
+                m_resources.remove(SOC.resource.WHEAT);
+                m_resources.remove(SOC.resource.SHEEP);
                 break;
             }
             return true;
@@ -180,6 +184,15 @@ class Player extends Polygon
             case CITY:
             if (numResource(SOC.resource.ORE) > 2 
             && (numResource(SOC.resource.WHEAT) > 1))
+            {
+
+                return true;
+            }
+            break;
+            case DEVCARD:
+            if (numResource(SOC.resource.ORE) > 1 
+            && (numResource(SOC.resource.WHEAT) > 1)
+            && (numResource(SOC.resource.SHEEP) > 1))
             {
 
                 return true;
