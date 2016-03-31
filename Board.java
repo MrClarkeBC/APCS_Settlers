@@ -166,11 +166,17 @@ public class Board implements BoardInterface
                 for (Tile t : m_tiles)
                 {
                     t.roll(temp);
+                    m_temp = temp;
                 }
             }
         }
 
         makeMove();
+    }
+    
+    public String getTemp()
+    {
+        return " " + Integer.toString(m_temp) + " ";
     }
 
     private Tile[] tiles() {return m_tiles;};
