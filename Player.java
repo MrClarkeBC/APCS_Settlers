@@ -108,9 +108,9 @@ class Player extends Polygon
         {
             if (r != SOC.resource.EMPTY && r != SOC.resource.DESERT)
             {
+                offset +=20;
                 text = String.format("%s:%d",r, numResource(r));
                 g.drawString(text, x + 5, y + offset);
-                offset +=20;
             }
         }
 
