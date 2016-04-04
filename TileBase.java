@@ -89,7 +89,7 @@ public class TileBase extends Polygon
 
         if (resource != SOC.resource.EMPTY){
             FontMetrics metrics = g.getFontMetrics();
-            g.setColor(new Color(0xFFFFFF));
+            g.setColor(new Color(0x000000));
             String text = String.format("%s",number);
             int w = metrics.stringWidth(text);
             int h = metrics.getHeight();
