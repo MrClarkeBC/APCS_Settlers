@@ -12,7 +12,7 @@ public class Board implements BoardInterface
     private int m_currentPlayer;
     private int m_turn = 1;
     private SOC.Junction m_lastJunction;
-
+Deck developmentCards = new Deck();
     int m_wood = 4;
     int m_wheat = 4;
     int m_desert = 1;
