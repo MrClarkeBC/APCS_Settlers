@@ -177,6 +177,8 @@ public class Board implements BoardInterface
     
     public String getTemp()
     {
+        if (m_temp==0) 
+            return "    ";
         return " " + Integer.toString(m_temp) + " ";
     }
 
