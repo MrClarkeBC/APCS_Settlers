@@ -41,7 +41,7 @@ public class Card {
      * Accesses this <code>Card's</code> suit.
      * @return this <code>Card's</code> suit.
      */
-    public SOC.DEVCARDS type() {
+    public SOC.DEVCARDS getType() {
         return type;
     }
 
