@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=b
+comment0.target=SOC.Junction\ placeFirstSettlement(BoardInterface)
+comment1.params=b
+comment1.target=SOC.Junction\ placeFirstRoad(BoardInterface)
+comment2.params=b
+comment2.target=SOC.Junction\ placeSecondSettlement(BoardInterface)
+comment3.params=b
+comment3.target=SOC.Road\ placeSecondRoad(BoardInterface)
+comment4.params=b
+comment4.target=void\ takeTurn(BoardInterface)
+numComments=5
