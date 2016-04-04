@@ -32,6 +32,7 @@ public class Board implements BoardInterface
     int WIDTH;
     int HEIGHT;
     int numPlayers;
+    int m_temp;
     Board(int w, int h) 
     {
         WIDTH = w;
