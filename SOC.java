@@ -14,7 +14,7 @@ public class SOC
     }
     public enum buildType
     {
-        EMPTY, SETTLEMENT, CITY, ROAD
+        EMPTY, SETTLEMENT, CITY, ROAD, DEVCARD
     }
     public enum location
     {
