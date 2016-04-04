@@ -27,7 +27,7 @@ public class TileBase extends Polygon
             this.colorValue = 0x083F23;
             break;
             case SHEEP:
-            this.colorValue = 0xFFFFFF;
+            this.colorValue = 0xE6E6E6;
             break;
             case ORE:
             this.colorValue = 0xCCCCCC;
