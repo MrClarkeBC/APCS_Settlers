@@ -13,6 +13,7 @@ public class Board implements BoardInterface
     private int m_turn = 1;
     private SOC.Junction m_lastJunction;
 Deck developmentCards = new Deck();
+private Robber m_robber;
     int m_wood = 4;
     int m_wheat = 4;
     int m_desert = 1;
@@ -290,7 +291,10 @@ Deck developmentCards = new Deck();
                     if(res != SOC.resource.DESERT)
                         number = randomNumber();
                     else
+                     {
+                        m_robber = new Robber(tile);
                         number = 0;
+                    }
 
                     //  Setup up junctions and roads using tile number addresses
                     if (row > 0 && col > 0 && col < cols-1)
