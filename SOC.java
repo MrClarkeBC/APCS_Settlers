@@ -12,6 +12,11 @@ public class SOC
     {
         EMPTY, DESERT, SHEEP, ORE, WOOD, WHEAT, BRICK, PORTSHEEP, PORTORE, PORTWOOD, PORTWHEAT, PORTBRICK, PORTANY
     }
+    public enum DEVCARDS
+{
+    KNIGHT, VPOINT, MONOPCARD, YOPCARD, RBCARD
+}
+  
     public enum buildType
     {
         EMPTY, SETTLEMENT, CITY, ROAD, DEVCARD
