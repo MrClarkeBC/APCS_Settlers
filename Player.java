@@ -10,7 +10,6 @@ class Player extends Polygon
     int m_boardHeight;
     int m_num;
     Color m_color;
-    private int vp;
 
     public Player(String name)
     {
@@ -102,15 +101,13 @@ class Player extends Polygon
 
         int offset = 30;
         g.drawString(text, x + 5, y + 10);
-        text = String.format("%s:%d","VP",vp);
-        g.drawString(text, x + 5, y + offset);
         for(SOC.resource r : SOC.resource.values())
         {
-            if (r != SOC.resource.EMPTY && r != SOC.resource.DESERT)
+            if (r != SOC.resource.EMPTY && r != SOC.resource.DESERT && r != SOC.resource.PORTORE && r != SOC.resource.PORTSHEEP && r != SOC.resource.PORTWHEAT && r != SOC.resource.PORTBRICK && r != SOC.resource.PORTWOOD && r != SOC.resource.PORTANY)
             {
-                offset +=20;
                 text = String.format("%s:%d",r, numResource(r));
                 g.drawString(text, x + 5, y + offset);
+                offset +=20;
             }
         }
 
@@ -119,7 +116,7 @@ class Player extends Polygon
         g.setStroke(tmpS);
     }
 
-   boolean build(SOC.buildType b)
+    boolean build(SOC.buildType b)
     {
         if (canBuild(b))
         {
@@ -143,12 +140,6 @@ class Player extends Polygon
                 m_resources.remove(SOC.resource.ORE);
                 m_resources.remove(SOC.resource.WHEAT);
                 m_resources.remove(SOC.resource.WHEAT);
-                break;
-
-                case DEVCARD:
-                m_resources.remove(SOC.resource.ORE);
-                m_resources.remove(SOC.resource.WHEAT);
-                m_resources.remove(SOC.resource.SHEEP);
                 break;
             }
             return true;
@@ -184,15 +175,6 @@ class Player extends Polygon
             case CITY:
             if (numResource(SOC.resource.ORE) > 2 
             && (numResource(SOC.resource.WHEAT) > 1))
-            {
-
-                return true;
-            }
-            break;
-            case DEVCARD:
-            if (numResource(SOC.resource.ORE) > 1 
-            && (numResource(SOC.resource.WHEAT) > 1)
-            && (numResource(SOC.resource.SHEEP) > 1))
             {
 
                 return true;
