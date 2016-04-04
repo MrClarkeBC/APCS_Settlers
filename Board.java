@@ -246,6 +246,20 @@ public class Board implements BoardInterface
             findJunction(tiles).build(currentPlayer());
     }
 
+    public void buyCard()
+    {
+        if(m_players[m_currentPlayer].canBuild(SOC.buildType.DEVCARD))
+        {
+            m_players[m_currentPlayer].build(SOC.buildType.DEVCARD);
+            m_players[m_currentPlayer].takeDevCard(drawDevelopmentCard());
+        }
+    }
+
+    public Card drawDevelopmentCard()
+    {
+        return developmentCards.deal();
+    }
+
     public void setupGrid()
     {
         int size = 7;
