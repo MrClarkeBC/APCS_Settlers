@@ -5,12 +5,12 @@ class Player extends Polygon
 {
     static int PlayerNum;
     private ArrayList<SOC.resource> m_resources;
+    private ArrayList<Card> m_devcards;
     String m_name;
     int m_boardWidth;
     int m_boardHeight;
     int m_num;
     Color m_color;
-    private int vp;
 
     public Player(String name)
     {
@@ -102,15 +102,13 @@ class Player extends Polygon
 
         int offset = 30;
         g.drawString(text, x + 5, y + 10);
-        text = String.format("%s:%d","VP",vp);
-        g.drawString(text, x + 5, y + offset);
         for(SOC.resource r : SOC.resource.values())
         {
-            if (r != SOC.resource.EMPTY && r != SOC.resource.DESERT)
+            if (r != SOC.resource.EMPTY && r !=SOC.resource.DESERT )
             {
-                offset +=20;
                 text = String.format("%s:%d",r, numResource(r));
                 g.drawString(text, x + 5, y + offset);
+                offset +=20;
             }
         }
 
@@ -119,7 +117,7 @@ class Player extends Polygon
         g.setStroke(tmpS);
     }
 
-   boolean build(SOC.buildType b)
+    boolean build(SOC.buildType b)
     {
         if (canBuild(b))
         {
@@ -221,8 +219,7 @@ class Player extends Polygon
     {
         System.out.println(m_name + " got " + count + " " + r);
         for (int i = 0;i<count; i++)
-           if (r != SOC.resource.DESERT)
-                m_resources.add(r);
+            m_resources.add(r);
     }
 
     void removeResource(SOC.resource s)
@@ -240,4 +237,8 @@ class Player extends Polygon
         return count;
     }
 
+    public void takeDevCard(Card dc)
+    {
+        m_devcards.add(dc);
+    }
 }
