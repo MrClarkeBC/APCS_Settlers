@@ -71,7 +71,9 @@ public class Board implements BoardInterface
         }
         return ret;
     }
-
+    
+    public int resourceCount(SOC.resource r){return m_players[m_currentPlayer].numResource(r);}
+    
     public void build(SOC.Road r) { r.build(currentPlayer());};
 
     public void build(SOC.Junction j) { j.build(currentPlayer());};

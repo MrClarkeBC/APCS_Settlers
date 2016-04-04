@@ -23,5 +23,9 @@ public class SimpleStrategy implements PlayerStrategy
         if (b.availableJunctions().size() > 0)
             b.build(b.availableJunctions().get(0));
     }
-
+    public void prioritizeResources(BoardInterface b)
+    {
+        if(b.resourceCount(SOC.resource.SHEEP) > 4)
+        b.trade(SOC.resource.SHEEP, SOC.resource.ORE);
+    }
 }

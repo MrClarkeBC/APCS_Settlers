@@ -15,4 +15,5 @@ public interface BoardInterface
     public String OwnerName(int n, SOC.location loc);
     public String OwnerName(int n, SOC.location loc, SOC.location loc2);
     public boolean trade(SOC.resource r1, SOC.resource r2);
+    public int resourceCount(SOC.resource r);
 }
