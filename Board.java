@@ -12,8 +12,13 @@ public class Board implements BoardInterface
     private int m_currentPlayer;
     private int m_turn = 1;
     private SOC.Junction m_lastJunction;
-Deck developmentCards = new Deck();
-private Robber m_robber;
+
+    int m_pwood = 1;
+    int m_pwheat = 1;
+    int m_psheep = 1;
+    int m_pore = 1;
+    int m_pbrick = 1;
+    int m_pany = 4;
     int m_wood = 4;
     int m_wheat = 4;
     int m_desert = 1;
@@ -33,7 +38,6 @@ private Robber m_robber;
     int WIDTH;
     int HEIGHT;
     int numPlayers;
-    int m_temp;
     Board(int w, int h) 
     {
         WIDTH = w;
@@ -72,9 +76,7 @@ private Robber m_robber;
         }
         return ret;
     }
-    
-    public int resourceCount(SOC.resource r){return m_players[m_currentPlayer].numResource(r);}
-    
+
     public void build(SOC.Road r) { r.build(currentPlayer());};
 
     public void build(SOC.Junction j) { j.build(currentPlayer());};
@@ -170,19 +172,11 @@ private Robber m_robber;
                 for (Tile t : m_tiles)
                 {
                     t.roll(temp);
-                    m_temp = temp;
                 }
             }
         }
 
         makeMove();
-    }
-    
-    public String getTemp()
-    {
-        if (m_temp==0) 
-            return "    ";
-        return " " + Integer.toString(m_temp) + " ";
     }
 
     private Tile[] tiles() {return m_tiles;};
@@ -247,20 +241,6 @@ private Robber m_robber;
             findJunction(tiles).build(currentPlayer());
     }
 
-    public void buyCard()
-    {
-        if(m_players[m_currentPlayer].canBuild(SOC.buildType.DEVCARD))
-        {
-            m_players[m_currentPlayer].build(SOC.buildType.DEVCARD);
-            m_players[m_currentPlayer].takeDevCard(drawDevelopmentCard());
-        }
-    }
-
-    public Card drawDevelopmentCard()
-    {
-        return developmentCards.deal();
-    }
-
     public void setupGrid()
     {
         int size = 7;
@@ -282,19 +262,14 @@ private Robber m_robber;
                 int y = (int) (origin.y + yOff * (row - half) * 3);
 
                 SOC.resource res = SOC.resource.EMPTY;
-                if (!(row>0 && row < size-1 && col>0 && col < cols-1) )
-                    res = SOC.resource.EMPTY;
-                else
+                
+                if ((row>0 && row < size-1 && col>0 && col < cols-1) )
                 {
-
                     res = randomResource();
                     if(res != SOC.resource.DESERT)
                         number = randomNumber();
                     else
-                     {
-                        m_robber = new Robber(tile);
                         number = 0;
-                    }
 
                     //  Setup up junctions and roads using tile number addresses
                     if (row > 0 && col > 0 && col < cols-1)
@@ -325,6 +300,14 @@ private Robber m_robber;
                             m_roads.add(new SOC.Road(m_tiles, tile, SOC.location.NE, SOC.location.SE));
                         }
                     }
+                }
+                else if (tile == 0 || tile == 2 || tile == 8 || tile == 9 || tile == 21 || tile == 22 || tile == 32 || tile == 33 || tile == 35)
+                {
+                    res = randomPort();
+                }
+                else
+                {
+                    res = SOC.resource.EMPTY;
                 }
 
                 m_tiles[tile] = new Tile(x, y, res, number);
@@ -365,7 +348,58 @@ private Robber m_robber;
         g.setColor(tmpC);
 
     }
-
+    
+    public SOC.resource randomPort()
+    {
+       int temp = (int)(Math.floor(Math.random() * 9) + 1);
+        if(temp == 1 && m_pwood > 0)
+        {
+            m_pwood--;
+            return SOC.resource.PORTWOOD;
+        }
+        if(temp == 2 && m_pwheat > 0)
+        {
+            m_pwheat--;
+            return SOC.resource.PORTWHEAT;
+        }
+        if(temp == 3 && m_pbrick > 0)
+        {
+            m_pbrick--;
+            return SOC.resource.PORTBRICK;
+        }
+        if(temp == 4 && m_pore > 0)
+        {
+            m_pore--;
+            return SOC.resource.PORTORE;
+        }
+        if(temp == 5 && m_psheep > 0)
+        {
+            m_psheep--;
+            return SOC.resource.PORTSHEEP;
+        }
+        if(temp == 6 && m_pany > 0)
+        {
+            m_pany--;
+            return SOC.resource.PORTANY;
+        }
+        if(temp == 7 && m_pany > 0)
+        {
+            m_pany--;
+            return SOC.resource.PORTANY;
+        }
+        if(temp == 8 && m_pany > 0)
+        {
+            m_pany--;
+            return SOC.resource.PORTANY;
+        }
+        if(temp == 9 && m_pany > 0)
+        {
+            m_pany--;
+            return SOC.resource.PORTANY;
+        }
+        return randomPort();
+    }
+    
     public SOC.resource randomResource()
     {
         int temp = (int)(Math.floor(Math.random() * 6) + 1);
