@@ -57,7 +57,7 @@ private Robber m_robber;
         return ret;
     };
     
-      public ArrayList<SOC.Junction> availableJunctions(SOC.resource r)//Returns an ArrayList of all junctions that border resource r
+    public ArrayList<SOC.Junction> availableJunctions(SOC.resource r)//Returns an ArrayList of all junctions that border resource r
     {
         ArrayList<SOC.Junction> ret = new ArrayList<SOC.Junction>();
         for(int i = 0;i < m_junctions.size();i++)//For every junction
