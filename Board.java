@@ -82,6 +82,26 @@ private Robber m_robber;
         }
         return ret;
     }
+    
+    public ArrayList<SOC.Junction> availableJunctions(int n)
+    {
+        ArrayList<SOC.Junction> ret = new ArrayList<SOC.Junction>();
+        for(int i = 0;i < m_junctions.size();i++)
+        {
+            for(int j = 0;j < m_junctions.get(i).address.length;j++)
+            {
+                if(m_junctions.get(i).canBuild(m_players[m_currentPlayer]))
+                {
+                    if(m_tiles[m_junctions.get(i).address[j]].number() == n)
+                    {
+                        ret.add(m_junctions.get(i));
+                        j = m_junctions.get(i).m_tiles.length - 1;
+                    }
+                }
+            }
+        }
+        return ret;
+    }
 
     public ArrayList<SOC.Road> availableRoads() 
     {
