@@ -33,7 +33,7 @@ public class TileBase extends Polygon
             this.colorValue = 0xCCCCCC;
             break;
             case WHEAT:
-            this.colorValue = 0xFFE243;
+            this.colorValue = 0xB5631B;
             break;
             case BRICK:
             this.colorValue = 0x902400;
