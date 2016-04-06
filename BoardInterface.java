@@ -17,4 +17,5 @@ public interface BoardInterface
     public boolean trade(SOC.resource r1, SOC.resource r2);
     public int resourceCount(SOC.resource r);
     public ArrayList<SOC.Junction> availableJunctions(SOC.resource r);
+    public ArrayList<SOC.Junction> availableJunctions(int n);
 }
