@@ -27,13 +27,13 @@ public class TileBase extends Polygon
             this.colorValue = 0x083F23;
             break;
             case SHEEP:
-        this.colorValue = 0x2EFE2E;
+            this.colorValue = 0x2EFE2E;
             break;
             case ORE:
             this.colorValue = 0xCCCCCC;
             break;
             case WHEAT:
-            this.colorValue = 0xB5631B;
+            this.colorValue = 0xFFBF00;
             break;
             case BRICK:
             this.colorValue = 0x902400;
