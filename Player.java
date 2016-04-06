@@ -104,7 +104,7 @@ class Player extends Polygon
         g.drawString(text, x + 5, y + 10);
         for(SOC.resource r : SOC.resource.values())
         {
-            if (r != SOC.resource.EMPTY && r !=SOC.resource.DESERT )
+            if (r != SOC.resource.EMPTY && r != SOC.resource.DESERT && r != SOC.resource.PORTORE && r != SOC.resource.PORTSHEEP && r != SOC.resource.PORTWHEAT && r != SOC.resource.PORTBRICK && r != SOC.resource.PORTWOOD && r != SOC.resource.PORTANY)
             {
                 text = String.format("%s:%d",r, numResource(r));
                 g.drawString(text, x + 5, y + offset);

@@ -33,7 +33,7 @@ public class TileBase extends Polygon
             this.colorValue = 0xCCCCCC;
             break;
             case WHEAT:
-            this.colorValue = 0xFFBF00;
+            this.colorValue = 0xDCD73B;
             break;
             case BRICK:
             this.colorValue = 0x902400;
@@ -41,7 +41,24 @@ public class TileBase extends Polygon
             case DESERT:
             this.colorValue = 0xF8F87C;
             break;
-
+            case PORTANY:
+            this.colorValue = 0x005AFF;
+            break;
+            case PORTWOOD:
+            this.colorValue = 0x005AFF;
+            break;
+            case PORTSHEEP:
+            this.colorValue = 0x005AFF;
+            break;
+            case PORTBRICK:
+            this.colorValue = 0x005AFF;
+            break;
+            case PORTORE:
+            this.colorValue = 0x005AFF;
+            break;
+            case PORTWHEAT:
+            this.colorValue = 0x005AFF;
+            break;
             case EMPTY:
             this.colorValue = 0x0042B3;
         }
@@ -87,16 +104,40 @@ public class TileBase extends Polygon
             g.drawPolygon(xpoints, ypoints, npoints);
 
 
-        if (resource != SOC.resource.EMPTY){
+        if (resource != SOC.resource.EMPTY)
+        {
             FontMetrics metrics = g.getFontMetrics();
             g.setColor(new Color(0x000000));
             String text = String.format("%s",number);
+            if(resource == SOC.resource.PORTANY)
+                text = String.format("%s","3:1");
+            if(resource == SOC.resource.PORTSHEEP)
+                text = String.format("%s","2:1");
+            if(resource == SOC.resource.PORTWOOD)
+                text = String.format("%s","2:1");
+            if(resource == SOC.resource.PORTORE)
+                text = String.format("%s","2:1");
+            if(resource == SOC.resource.PORTWHEAT)
+                text = String.format("%s","2:1");
+            if(resource == SOC.resource.PORTBRICK)
+                text = String.format("%s","2:1");
             int w = metrics.stringWidth(text);
             int h = metrics.getHeight();
-        if(resource != SOC.resource.DESERT)
-            g.drawString(text, center.x - w/2, center.y - h/2);
-
+            if(resource != SOC.resource.DESERT)
+                g.drawString(text, center.x - w/2, center.y - h/2);
             text = String.format("%s",resource);
+            if(resource == SOC.resource.PORTANY)
+                text = String.format("%s","ANY");
+            if (resource == SOC.resource.PORTSHEEP)
+                text = String.format("%s","SHEEP");
+            if(resource == SOC.resource.PORTWOOD)
+                text = String.format("%s","WOOD");
+            if(resource == SOC.resource.PORTORE)
+                text = String.format("%s","ORE");
+            if(resource == SOC.resource.PORTWHEAT)
+                text = String.format("%s","WHEAT");
+            if(resource == SOC.resource.PORTBRICK)
+                text = String.format("%s","BRICK");
             w = metrics.stringWidth(text);
             g.drawString(text, center.x - w/2, center.y + h/2 );
         }
