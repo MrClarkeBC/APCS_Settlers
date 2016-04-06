@@ -6,7 +6,7 @@ public class Board implements BoardInterface
     private Player[] m_players = new Player[4];
     private PlayerStrategy[] m_strategies = new PlayerStrategy[4];
     private Tile[] m_tiles = new Tile[37];
-    Deck developmentCards = new Deck();
+
     private ArrayList<SOC.Junction> m_junctions = new ArrayList<SOC.Junction>();
     private ArrayList<SOC.Road> m_roads = new ArrayList<SOC.Road>();
     private int m_currentPlayer;
@@ -245,19 +245,6 @@ private Robber m_robber;
             findRoad(tiles).build(currentPlayer());
         else
             findJunction(tiles).build(currentPlayer());
-    }
- public void buyCard()
-    {
-        if(m_players[m_currentPlayer].canBuild(SOC.buildType.DEVCARD))
-        {
-            m_players[m_currentPlayer].build(SOC.buildType.DEVCARD);
-            m_players[m_currentPlayer].takeDevCard(drawDevelopmentCard());
-        }
-    }
-
-    public Card drawDevelopmentCard()
-    {
-        return developmentCards.deal();
     }
 
     public void buyCard()
