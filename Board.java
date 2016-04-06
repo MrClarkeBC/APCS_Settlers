@@ -56,6 +56,26 @@ private Robber m_robber;
         }
         return ret;
     };
+    
+      public ArrayList<SOC.Junction> availableJunctions(SOC.resource r)//Returns an ArrayList of all junctions that border resource r
+    {
+        ArrayList<SOC.Junction> ret = new ArrayList<SOC.Junction>();
+        for(int i = 0;i < m_junctions.size();i++)//For every junction
+        {
+            for(int j = 0;j < m_junctions.get(i).address.length;j++)//For every tile at that junction
+            {
+                if (m_junctions.get(i).canBuild(m_players[m_currentPlayer]))//If available to build
+                {
+                    if(m_tiles[m_junctions.get(i).address[j]].resource() == r)//If bordering resource r
+                    {
+                        ret.add(m_junctions.get(i));
+                        j = m_junctions.get(i).m_tiles.length - 1;
+                    }
+                }
+            }
+        }
+        return ret;
+    }
 
     public ArrayList<SOC.Road> availableRoads() 
     {
