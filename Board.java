@@ -20,6 +20,12 @@ private Robber m_robber;
     int m_sheep = 4;
     int m_ore = 3;
     int m_brick = 3;
+    int m_pwood = 1;
+    int m_pwheat = 1;
+    int m_psheep = 1;
+    int m_pore = 1;
+    int m_pbrick = 1;
+    int m_pany = 4;
     int num2 = 1;
     int num3 = 2;
     int num4 = 2;
@@ -302,11 +308,8 @@ private Robber m_robber;
                 int y = (int) (origin.y + yOff * (row - half) * 3);
 
                 SOC.resource res = SOC.resource.EMPTY;
-                if (!(row>0 && row < size-1 && col>0 && col < cols-1) )
-                    res = SOC.resource.EMPTY;
-                else
+                if ((row>0 && row < size-1 && col>0 && col < cols-1) )
                 {
-
                     res = randomResource();
                     if(res != SOC.resource.DESERT)
                         number = randomNumber();
@@ -346,6 +349,14 @@ private Robber m_robber;
                         }
                     }
                 }
+                else if (tile == 0 || tile == 2 || tile == 8 || tile == 9 || tile == 21 || tile == 22 || tile == 32 || tile == 33 || tile == 35)
+                {
+                    res = randomPort();
+                }
+                else
+                {
+                    res = SOC.resource.EMPTY;
+                }
 
                 m_tiles[tile] = new Tile(x, y, res, number);
                 tile++;
@@ -353,6 +364,57 @@ private Robber m_robber;
         }
     }
 
+    public SOC.resource randomPort()
+    {
+       int temp = (int)(Math.floor(Math.random() * 9) + 1);
+        if(temp == 1 && m_pwood > 0)
+        {
+            m_pwood--;
+            return SOC.resource.PORTWOOD;
+        }
+        if(temp == 2 && m_pwheat > 0)
+        {
+            m_pwheat--;
+            return SOC.resource.PORTWHEAT;
+        }
+        if(temp == 3 && m_pbrick > 0)
+        {
+            m_pbrick--;
+            return SOC.resource.PORTBRICK;
+        }
+        if(temp == 4 && m_pore > 0)
+        {
+            m_pore--;
+            return SOC.resource.PORTORE;
+        }
+        if(temp == 5 && m_psheep > 0)
+        {
+            m_psheep--;
+            return SOC.resource.PORTSHEEP;
+        }
+        if(temp == 6 && m_pany > 0)
+        {
+            m_pany--;
+            return SOC.resource.PORTANY;
+        }
+        if(temp == 7 && m_pany > 0)
+        {
+            m_pany--;
+            return SOC.resource.PORTANY;
+        }
+        if(temp == 8 && m_pany > 0)
+        {
+            m_pany--;
+            return SOC.resource.PORTANY;
+        }
+        if(temp == 9 && m_pany > 0)
+        {
+            m_pany--;
+            return SOC.resource.PORTANY;
+        }
+        return randomPort();
+    }
+    
     public void paintComponent(Graphics g) 
     {
         Graphics2D g2d = (Graphics2D) g;
