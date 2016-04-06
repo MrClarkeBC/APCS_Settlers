@@ -2,6 +2,8 @@ public class SimpleStrategy implements PlayerStrategy
 {
     public SOC.Junction placeFirstSettlement(BoardInterface b)
     {
+        /*return b.availableJunctions(SOC.resource.ORE).get(0) for example will return
+        *the first Junction on the board that is bordering ORE.*/
         return b.availableJunctions().get(0);
     }
     public SOC.Junction placeFirstRoad(BoardInterface b)
