@@ -12,8 +12,8 @@ public class Board implements BoardInterface
     private int m_currentPlayer;
     private int m_turn = 1;
     private SOC.Junction m_lastJunction;
-Deck developmentCards = new Deck();
-private Robber m_robber;
+    Deck developmentCards = new Deck();
+    private Robber m_robber;
     int m_wood = 4;
     int m_wheat = 4;
     int m_desert = 1;
@@ -62,7 +62,7 @@ private Robber m_robber;
         }
         return ret;
     };
-    
+
     public ArrayList<SOC.Junction> availableJunctions(SOC.resource r)//Returns an ArrayList of all junctions that border resource r
     {
         ArrayList<SOC.Junction> ret = new ArrayList<SOC.Junction>();
@@ -82,7 +82,7 @@ private Robber m_robber;
         }
         return ret;
     }
-    
+
     public ArrayList<SOC.Junction> availableJunctions(int n)
     {
         ArrayList<SOC.Junction> ret = new ArrayList<SOC.Junction>();
@@ -118,9 +118,9 @@ private Robber m_robber;
         }
         return ret;
     }
-    
+
     public int resourceCount(SOC.resource r){return m_players[m_currentPlayer].numResource(r);}
-    
+
     public void build(SOC.Road r) { r.build(currentPlayer());};
 
     public void build(SOC.Junction j) { j.build(currentPlayer());};
@@ -223,7 +223,7 @@ private Robber m_robber;
 
         makeMove();
     }
-    
+
     public String getTemp()
     {
         if (m_temp==0) 
@@ -287,10 +287,17 @@ private Robber m_robber;
 
     public void build(int[] tiles) 
     {
+        try
+        {
         if (tiles[2] == 0)
             findRoad(tiles).build(currentPlayer());
         else
             findJunction(tiles).build(currentPlayer());
+        }
+        catch (Exception ex)
+        {
+            System.out.println("can't build there!");
+        }
     }
 
     public void buyCard()
@@ -334,7 +341,7 @@ private Robber m_robber;
                     if(res != SOC.resource.DESERT)
                         number = randomNumber();
                     else
-                     {
+                    {
                         m_robber = new Robber(tile);
                         number = 0;
                     }
@@ -342,8 +349,14 @@ private Robber m_robber;
                     //  Setup up junctions and roads using tile number addresses
                     if (row > 0 && col > 0 && col < cols-1)
                     {
-                        if (col == 1) // get NW location for first tile in each row
+                        if (col == 1) // set special location for first tile in each row
                         {
+                            if (row >= half)
+                            {
+                                m_roads.add(new SOC.Road(m_tiles, tile, SOC.location.SW, SOC.location.S));
+                                m_junctions.add(new SOC.Junction(m_tiles, tile, SOC.location.SW));
+                            }
+
                             m_junctions.add(new SOC.Junction(m_tiles, tile, SOC.location.NW));
                         }
                         m_junctions.add(new SOC.Junction(m_tiles, tile, SOC.location.N));
@@ -352,10 +365,7 @@ private Robber m_robber;
                         {
                             m_junctions.add(new SOC.Junction(m_tiles, tile, SOC.location.S));
                             m_junctions.add(new SOC.Junction(m_tiles, tile, SOC.location.SW));
-                            if (col == cols - 2)
-                            {
-                                m_junctions.add(new SOC.Junction(m_tiles, tile, SOC.location.SE));
-                            }
+
                             m_roads.add(new SOC.Road(m_tiles, tile, SOC.location.S, SOC.location.SW));
                             m_roads.add(new SOC.Road(m_tiles, tile, SOC.location.SE, SOC.location.S));
                         }
@@ -366,6 +376,15 @@ private Robber m_robber;
                         if (col == cols - 2)
                         {
                             m_roads.add(new SOC.Road(m_tiles, tile, SOC.location.NE, SOC.location.SE));
+
+                            if (row >= half)
+                            {
+                                m_roads.add(new SOC.Road(m_tiles, tile, SOC.location.SE, SOC.location.S));
+                                if (col == cols - 2)
+                                {
+                                    m_junctions.add(new SOC.Junction(m_tiles, tile, SOC.location.SE));
+                                }
+                            }
                         }
                     }
                 }
@@ -386,7 +405,7 @@ private Robber m_robber;
 
     public SOC.resource randomPort()
     {
-       int temp = (int)(Math.floor(Math.random() * 9) + 1);
+        int temp = (int)(Math.floor(Math.random() * 9) + 1);
         if(temp == 1 && m_pwood > 0)
         {
             m_pwood--;
@@ -434,7 +453,7 @@ private Robber m_robber;
         }
         return randomPort();
     }
-    
+
     public void paintComponent(Graphics g) 
     {
         Graphics2D g2d = (Graphics2D) g;
