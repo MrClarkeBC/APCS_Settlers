@@ -183,7 +183,7 @@ class Player extends Polygon
             && (numResource(SOC.resource.WHEAT) > 0)
             && (numResource(SOC.resource.BRICK) > 0)
             && (numResource(SOC.resource.SHEEP) > 0)
-            && (m_settlements < 4))
+            && (m_settlements < 5))
             {
 
                 return true;
