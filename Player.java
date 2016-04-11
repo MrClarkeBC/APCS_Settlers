@@ -12,6 +12,8 @@ class Player extends Polygon
     int m_num;
     Color m_color;
     private int vp;
+    int m_settlements;
+    int m_cities;
 
     public Player(String name)
     {
@@ -136,6 +138,7 @@ class Player extends Polygon
                 m_resources.remove(SOC.resource.WHEAT);
                 m_resources.remove(SOC.resource.BRICK);
                 m_resources.remove(SOC.resource.SHEEP);
+                m_settlements++;
                 vp++;
                 break;
 
@@ -145,6 +148,8 @@ class Player extends Polygon
                 m_resources.remove(SOC.resource.ORE);
                 m_resources.remove(SOC.resource.WHEAT);
                 m_resources.remove(SOC.resource.WHEAT);
+                m_cities++;
+                m_settlements--;
                 vp++;
                 break;
 
@@ -177,7 +182,8 @@ class Player extends Polygon
             if (numResource(SOC.resource.WOOD) > 0 
             && (numResource(SOC.resource.WHEAT) > 0)
             && (numResource(SOC.resource.BRICK) > 0)
-            && (numResource(SOC.resource.SHEEP) > 0))
+            && (numResource(SOC.resource.SHEEP) > 0)
+            && (m_settlements < 4))
             {
 
                 return true;
@@ -186,7 +192,8 @@ class Player extends Polygon
 
             case CITY:
             if (numResource(SOC.resource.ORE) > 2 
-            && (numResource(SOC.resource.WHEAT) > 1))
+            && (numResource(SOC.resource.WHEAT) > 1)
+            && (m_cities < 4))
             {
 
                 return true;
