@@ -201,6 +201,8 @@ public class Board implements BoardInterface
         if (numPlayers == 4)
         {
             m_currentPlayer = (m_currentPlayer + direction) % 4;
+            if (m_currentPlayer <0)
+                m_currentPlayer += 4;
             m_turn++;
             if (m_turn == 5)
             {
@@ -289,10 +291,10 @@ public class Board implements BoardInterface
     {
         try
         {
-        if (tiles[2] == 0)
-            findRoad(tiles).build(currentPlayer());
-        else
-            findJunction(tiles).build(currentPlayer());
+            if (tiles[2] == 0)
+                findRoad(tiles).build(currentPlayer());
+            else
+                findJunction(tiles).build(currentPlayer());
         }
         catch (Exception ex)
         {
