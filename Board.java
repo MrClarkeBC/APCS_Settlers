@@ -291,10 +291,10 @@ public class Board implements BoardInterface
     {
         try
         {
-        if (tiles[2] == 0)
-            findRoad(tiles).build(currentPlayer());
-        else
-            findJunction(tiles).build(currentPlayer());
+            if (tiles[2] == 0)
+                findRoad(tiles).build(currentPlayer());
+            else
+                findJunction(tiles).build(currentPlayer());
         }
         catch (Exception ex)
         {
