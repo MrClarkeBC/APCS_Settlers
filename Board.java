@@ -201,6 +201,8 @@ public class Board implements BoardInterface
         if (numPlayers == 4)
         {
             m_currentPlayer = (m_currentPlayer + direction) % 4;
+            if (m_currentPlayer <0)
+                m_currentPlayer += 4;
             m_turn++;
             if (m_turn == 5)
             {
