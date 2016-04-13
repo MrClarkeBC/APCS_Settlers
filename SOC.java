@@ -187,6 +187,11 @@ public class SOC
 
         private Player owner() { return m_tiles[address[0]].owner(locations[0]);}
 
+
+        public String ownerName()
+        {
+            return owner().toString();
+        }
         buildType type()
         {
             buildType b1 = m_tiles[address[0]].junctionType(locations[0]);
