@@ -78,7 +78,7 @@ public class Tile extends TileBase
         if (!canBuild(p, b, loc))
             return false;
 
-        m_buildings[loc.ordinal()] = SOC.buildType.SETTLEMENT;
+        m_buildings[loc.ordinal()] = b;
         m_players[loc.ordinal()] = p; 
         m_givecards.add(p); 
         return true;

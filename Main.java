@@ -10,7 +10,13 @@ public class Main extends JPanel
 {
     private final int WIDTH = 900;
     private final int HEIGHT = 600;
+    String[] resStrings = { "Wood", "Wheat", "Ore", "Sheep", "Brick" };
+
     private JButton jButton1 = new JButton("    ");
+    private JButton jButton2 = new JButton("Trade");
+    private JComboBox giveList = new JComboBox(resStrings);
+    private JComboBox getList = new JComboBox(resStrings);
+    private JButton jButton3 = new JButton("Buy Card");
     private Font m_font = new Font("Arial", Font.BOLD, 18);
     FontMetrics metrics;
     Polygon cursor = new Polygon();
@@ -23,8 +29,14 @@ public class Main extends JPanel
         m_board.addPlayer(new Player("Sue"));
         m_board.addPlayer(new Player("Amber"));
         add(jButton1);
+        add(jButton2);
+        add(giveList);
+        add(getList);
+        add(jButton3);
         jButton1.setMargin(new Insets(2, 2, 2, 2));
-        jButton1.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent evt){jButton1_ActionPerformed(evt);}            });
+        jButton1.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent evt){jButton1_ActionPerformed(evt);}});
+        jButton2.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent evt){trade(evt);}});
+        jButton2.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent evt){buy(evt);}});
         jButton1.setBackground(m_board.currentPlayer().getColor());
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         addMouseListener(new HitTestAdapter());
@@ -37,6 +49,31 @@ public class Main extends JPanel
         jButton1.setBackground(m_board.currentPlayer().getColor());
         jButton1.setText(m_board.getTemp());
         getParent().repaint();
+    }
+
+    public void trade(ActionEvent evt)
+    {
+        SOC.resource give = SOC.resource.DESERT;
+        SOC.resource get = SOC.resource.DESERT;
+        if (giveList.getSelectedIndex() == 0) give = SOC.resource.WOOD;
+        if (giveList.getSelectedIndex() == 1) give = SOC.resource.WHEAT;
+        if (giveList.getSelectedIndex() == 2) give = SOC.resource.ORE;
+        if (giveList.getSelectedIndex() == 3) give = SOC.resource.SHEEP;
+        if (giveList.getSelectedIndex() == 4) give = SOC.resource.BRICK;
+
+        if (getList.getSelectedIndex() == 0) get = SOC.resource.WOOD;
+        if (getList.getSelectedIndex() == 1) get = SOC.resource.WHEAT;
+        if (getList.getSelectedIndex() == 2) get = SOC.resource.ORE;
+        if (getList.getSelectedIndex() == 3) get = SOC.resource.SHEEP;
+        if (getList.getSelectedIndex() == 4) get = SOC.resource.BRICK;
+
+        m_board.currentPlayer().trade(give, get);
+
+    }
+
+    public void buy(ActionEvent evt)
+    {
+        m_board.buyCard();
     }
 
     @Override

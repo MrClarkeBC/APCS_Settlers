@@ -13,10 +13,10 @@ public class SOC
         EMPTY, DESERT, SHEEP, ORE, WOOD, WHEAT, BRICK, PORTSHEEP, PORTORE, PORTWOOD, PORTWHEAT, PORTBRICK, PORTANY
     }
     public enum DEVCARDS
-{
-    KNIGHT, VPOINT, MONOPCARD, YOPCARD, RBCARD
-}
-  
+    {
+        KNIGHT, VPOINT, MONOPCARD, YOPCARD, RBCARD
+    }
+
     public enum buildType
     {
         EMPTY, SETTLEMENT, CITY, ROAD, DEVCARD
@@ -187,8 +187,12 @@ public class SOC
 
         private Player owner() { return m_tiles[address[0]].owner(locations[0]);}
 
-        buildType type() { return m_tiles[address[0]].junctionType(locations[0]);}
-        
+        buildType type()
+        {
+            buildType b1 = m_tiles[address[0]].junctionType(locations[0]);
+            return b1;
+        }
+
         ArrayList<Road> roads()
         {
             ArrayList<Road> ret = new ArrayList<Road>();
@@ -209,7 +213,7 @@ public class SOC
             roadTiles[1] = address[2];
             locations = findLocations(roadTiles);
             ret.add(new Road(m_tiles, address[0], locations[0], locations[1]));
-            
+
             return ret;
         }
 
