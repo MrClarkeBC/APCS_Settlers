@@ -190,7 +190,7 @@ public class SOC
 
         public String ownerName()
         {
-            return owner().toString();
+            return owner().getName();
         }
         buildType type()
         {
