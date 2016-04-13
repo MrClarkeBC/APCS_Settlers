@@ -393,6 +393,7 @@ public class Board implements BoardInterface
                 else if (tile == 0 || tile == 2 || tile == 8 || tile == 9 || tile == 21 || tile == 22 || tile == 32 || tile == 33 || tile == 35)
                 {
                     res = randomPort();
+                    number = 0;
                 }
                 else
                 {
