@@ -14,6 +14,7 @@ class Player extends Polygon
     private int vp;
     int m_settlements;
     int m_cities;
+    int m_roads;
 
     public Player(String name)
     {
@@ -131,6 +132,7 @@ class Player extends Polygon
                 case ROAD:
                 m_resources.remove(SOC.resource.WOOD);
                 m_resources.remove(SOC.resource.BRICK);
+                m_roads++;
                 break;
 
                 case SETTLEMENT:
@@ -171,7 +173,8 @@ class Player extends Polygon
         {
             case ROAD:
             if (numResource(SOC.resource.WOOD) > 0 
-            && (numResource(SOC.resource.BRICK) > 0))
+            && (numResource(SOC.resource.BRICK) > 0)
+            && (m_roads < 15))
             {
 
                 return true;
@@ -254,3 +257,4 @@ class Player extends Polygon
         m_devcards.add(dc);
     }
 }
+
