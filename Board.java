@@ -137,11 +137,21 @@ public class Board implements BoardInterface
 
     public String OwnerName(int n, SOC.location loc, SOC.location loc2) { return tiles()[n].owner(loc, loc2).getName();};
 
+    public String myName() { return currentPlayer().getName();};
     public boolean trade(SOC.resource r1, SOC.resource r2)
     {
         return currentPlayer().trade(r1, r2);
     }
+    
+    public int placeRobber()
+    {
+        return m_strategies[m_currentPlayer].placeRobber();
+    }
 
+    public int stealResource(String [] playerNames)
+    {
+        return m_strategies[m_currentPlayer].stealResource(playerNames);
+    }
     public void addPlayer(Player p, PlayerStrategy s)
     {
         if (numPlayers < 4)
@@ -226,11 +236,9 @@ public class Board implements BoardInterface
         makeMove();
     }
 
-    public String getTemp()
+    public int getLastRoll()
     {
-        if (m_temp==0) 
-            return "    ";
-        return " " + Integer.toString(m_temp) + " ";
+        return m_temp;
     }
 
     private Tile[] tiles() {return m_tiles;};
@@ -291,6 +299,8 @@ public class Board implements BoardInterface
     {
         try
         {
+            if (tiles[1] == 0)
+                // place robber on tiles[0]
             if (tiles[2] == 0)
                 findRoad(tiles).build(currentPlayer());
             else

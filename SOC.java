@@ -19,7 +19,7 @@ public class SOC
 
     public enum buildType
     {
-        EMPTY, SETTLEMENT, CITY, ROAD, DEVCARD
+        EMPTY, SETTLEMENT, CITY, ROAD, DEVCARD, ROBBER
     }
     public enum location
     {
@@ -52,6 +52,13 @@ public class SOC
                 int y[] = {p.y - 5, p.y - 5, p.y + 5, p.y + 5};
                 m_poly = new Polygon(x, y, x.length);
             }
+            else if (t == SOC.buildType.ROBBER)
+            {
+                int x[] = {p.x - 10, p.x + 10, p.x + 10, p.x - 10};
+                int y[] = {p.y - 10, p.y - 10, p.y + 10, p.y + 10};
+                m_poly = new Polygon(x, y, x.length);
+            }
+            
             else
             {
                 m_poly = new Polygon();

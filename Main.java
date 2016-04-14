@@ -47,7 +47,18 @@ public class Main extends JPanel
     {
         m_board.nextPlayer();
         jButton1.setBackground(m_board.currentPlayer().getColor());
-        jButton1.setText(m_board.getTemp());
+        int roll = m_board.getLastRoll();
+        String tmp;
+        if (roll==0) 
+            tmp = "    ";
+        else
+            tmp = " " + Integer.toString(roll) + " ";
+
+        jButton1.setText(tmp);
+        if (roll == 7)
+        {
+
+        }
         getParent().repaint();
     }
 
@@ -124,6 +135,8 @@ public class Main extends JPanel
             Rectangle r = new Rectangle(x - 10, y - 10, 20, 20);
 
             int count = m_board.tileCount(r);
+            if (count == 1 && m_board.getLastRoll() == 7) // robber
+                cursor = new SOC.piece(SOC.buildType.ROBBER, m_board.currentPlayer().getColor(), e.getPoint()).shape();
             if (count == 2)  // road
                 cursor = new SOC.piece(SOC.buildType.ROAD, m_board.currentPlayer().getColor(), e.getPoint()).shape();
             if (count == 3)  // junction
