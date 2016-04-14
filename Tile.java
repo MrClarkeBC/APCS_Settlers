@@ -19,6 +19,8 @@ public class Tile extends TileBase
 
     SOC.resource resource() { return m_resource;};
 
+    public Player[] getP(){return m_players;};
+
     public Tile(SOC.resource r, int n)
     {
         this(0,0,r,n);
@@ -142,7 +144,7 @@ public class Tile extends TileBase
         for(int i = 0; i < m_givecards.size(); i ++)
         {
             if(m_resource != SOC.resource.DESERT)
-            m_givecards.get(i).collectResources(m_resource, 1);
+                m_givecards.get(i).collectResources(m_resource, 1);
         }
     }
 

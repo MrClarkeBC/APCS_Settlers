@@ -11,12 +11,16 @@ public class Main extends JPanel
     private final int WIDTH = 900;
     private final int HEIGHT = 600;
     String[] resStrings = { "Wood", "Wheat", "Ore", "Sheep", "Brick" };
+    String [] Pstring = {"P1","P2","P3","P4"};
 
     private JButton jButton1 = new JButton("    ");
     private JButton jButton2 = new JButton("Trade");
     private JComboBox giveList = new JComboBox(resStrings);
     private JComboBox getList = new JComboBox(resStrings);
     private JButton jButton3 = new JButton("Buy Card");
+    private JButton jButton4 = new JButton ("Steal");
+    private JComboBox stealList = new JComboBox(Pstring);
+
     private Font m_font = new Font("Arial", Font.BOLD, 18);
     FontMetrics metrics;
     Polygon cursor = new Polygon();
@@ -37,6 +41,10 @@ public class Main extends JPanel
         jButton1.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent evt){jButton1_ActionPerformed(evt);}});
         jButton2.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent evt){trade(evt);}});
         jButton2.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent evt){buy(evt);}});
+        if (m_board.getTemp()=="7")
+        {
+            jButton4.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent evt){steal(evt);}});
+        }
         jButton1.setBackground(m_board.currentPlayer().getColor());
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         addMouseListener(new HitTestAdapter());
@@ -49,6 +57,12 @@ public class Main extends JPanel
         jButton1.setBackground(m_board.currentPlayer().getColor());
         jButton1.setText(m_board.getTemp());
         getParent().repaint();
+    }
+
+    public void steal(ActionEvent evt)
+    {
+        //use modifiers in the robber instantiated in board
+
     }
 
     public void trade(ActionEvent evt)

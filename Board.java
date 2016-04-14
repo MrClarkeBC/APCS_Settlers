@@ -137,6 +137,10 @@ public class Board implements BoardInterface
 
     public String OwnerName(int n, SOC.location loc, SOC.location loc2) { return tiles()[n].owner(loc, loc2).getName();};
 
+    public Tile[] getT() {return m_tiles;};
+
+    public Player[] getP(){return m_players;};
+
     public boolean trade(SOC.resource r1, SOC.resource r2)
     {
         return currentPlayer().trade(r1, r2);
@@ -344,7 +348,7 @@ public class Board implements BoardInterface
                         number = randomNumber();
                     else
                     {
-                        m_robber = new Robber(tile);
+                        m_robber = new Robber(tile,null,this,"");
                         number = 0;
                     }
 

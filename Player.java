@@ -68,6 +68,8 @@ class Player extends Polygon
         return m_name;
     }
 
+    public ArrayList<SOC.resource> getr(){return m_resources;};
+
     public void draw(Graphics2D g)
     {
         // Store before changing.
