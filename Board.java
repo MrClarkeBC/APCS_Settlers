@@ -402,6 +402,7 @@ public class Board implements BoardInterface
                 else
                 {
                     res = SOC.resource.EMPTY;
+                    number = 0;
                 }
 
                 m_tiles[tile] = new Tile(x, y, res, number);

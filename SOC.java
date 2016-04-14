@@ -190,6 +190,8 @@ public class SOC
 
         public String ownerName()
         {
+            if(owner() == null)
+                return "";
             return owner().getName();
         }
         buildType type()
