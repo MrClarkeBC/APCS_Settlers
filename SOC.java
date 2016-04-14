@@ -116,7 +116,12 @@ public class SOC
             }
         }
 
-        private Player owner() { return m_tiles[address[0]].owner(locations[0], locations[1]);}
+        private Player owner() { 
+            if (address[0] < m_tiles.length)
+                return m_tiles[address[0]].owner(locations[0], locations[1]);
+                
+            return null;
+        }
 
         buildType type() { return (owner() == null?buildType.EMPTY:buildType.ROAD);}
 
@@ -163,6 +168,16 @@ public class SOC
             if (!p.canBuild(b))
                 return false;
 
+            // Check that at least one road is owned by player
+            boolean bOwnsRoad = (p.numSettlements() < 2);
+            for (int i = 0; i < roads().size();i++)
+            {
+                if (roads().get(i).owner() == p)
+                    bOwnsRoad = true;
+            }
+            if (!bOwnsRoad)
+                return false;
+
             // check/build on all the tiles
             for (int i = 0; i < address.length;i++)
             {
@@ -185,8 +200,11 @@ public class SOC
             }
         }
 
-        private Player owner() { return m_tiles[address[0]].owner(locations[0]);}
-
+        private Player owner() { 
+            Tile t = m_tiles[address[0]];
+            Player p = t.owner(locations[0]);
+            return p;
+        }
 
         public String ownerName()
         {
@@ -194,6 +212,7 @@ public class SOC
                 return "";
             return owner().getName();
         }
+
         buildType type()
         {
             buildType b1 = m_tiles[address[0]].junctionType(locations[0]);

@@ -256,5 +256,10 @@ class Player extends Polygon
     {
         m_devcards.add(dc);
     }
+    
+    int numSettlements()
+    {
+        return m_settlements;
+    }
 }
 
