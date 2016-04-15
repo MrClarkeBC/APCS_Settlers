@@ -299,7 +299,7 @@ public class Board implements BoardInterface
     {
         try
         {
-            if (tiles[1] == 0)
+//            if (tiles[1] == 0)
                 // place robber on tiles[0]
             if (tiles[2] == 0)
                 findRoad(tiles).build(currentPlayer());

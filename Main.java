@@ -121,6 +121,7 @@ public class Main extends JPanel
             int x = e.getX();
             int y = e.getY();
             Rectangle r = new Rectangle(x - 10, y - 10, 20, 20);
+
             m_board.build(r);
             getParent().repaint();
         }
