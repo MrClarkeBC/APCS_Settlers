@@ -79,7 +79,8 @@ public class Tile extends TileBase
             return false;
 
         m_buildings[loc.ordinal()] = b;
-        m_players[loc.ordinal()] = p; 
+        m_players[loc.ordinal()] = p;
+        p.addPort(m_resource);
         m_givecards.add(p); 
         return true;
     }

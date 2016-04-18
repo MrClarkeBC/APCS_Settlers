@@ -6,6 +6,7 @@ class Player extends Polygon
     static int PlayerNum;
     private ArrayList<SOC.resource> m_resources;
     private ArrayList<Card> m_devcards;
+
     String m_name;
     int m_boardWidth;
     int m_boardHeight;
@@ -15,6 +16,12 @@ class Player extends Polygon
     int m_settlements;
     int m_cities;
     int m_roads;
+    boolean m_PortSheep;
+    boolean m_PortOre;
+    boolean m_PortWood;
+    boolean m_PortWheat;
+    boolean m_PortBrick;
+    boolean m_PortAny;
 
     public Player(String name)
     {
@@ -218,12 +225,18 @@ class Player extends Polygon
 
     public boolean trade(SOC.resource r1, SOC.resource r2)
     {
-        if (numResource(r1) > 3)
+        int numTrade = 4;
+        if (m_PortAny) numTrade = 3;
+        if (r1 == SOC.resource.SHEEP && m_PortSheep) numTrade = 2;
+        if (r1 == SOC.resource.ORE && m_PortOre) numTrade = 2;
+        if (r1 == SOC.resource.WOOD && m_PortWood) numTrade = 2;
+        if (r1 == SOC.resource.WHEAT && m_PortWheat) numTrade = 2;
+        if (r1 == SOC.resource.BRICK && m_PortBrick) numTrade = 2;
+
+        if (numResource(r1) >= numTrade)
         {
-            removeResource(r1);
-            removeResource(r1);
-            removeResource(r1);
-            removeResource(r1);
+            for (int i = 0;i< numTrade;i++)
+                removeResource(r1);
             collectResources(r2, 1);
             return true;
         }
@@ -256,10 +269,21 @@ class Player extends Polygon
     {
         m_devcards.add(dc);
     }
-    
+
     int numSettlements()
     {
         return m_settlements;
     }
+
+    public void addPort(SOC.resource p)
+    {
+        if (p == SOC.resource.PORTSHEEP) m_PortSheep = true;
+        if (p == SOC.resource.PORTORE) m_PortOre = true;
+        if (p == SOC.resource.PORTWOOD) m_PortWood = true;
+        if (p == SOC.resource.PORTWHEAT) m_PortWheat = true;
+        if (p == SOC.resource.PORTBRICK) m_PortBrick = true;
+        if (p == SOC.resource.PORTANY) m_PortAny = true;
+    }
+
 }
 
