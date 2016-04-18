@@ -35,6 +35,8 @@ class Player extends Polygon
         m_boardWidth = width;
         m_boardHeight = height;
         m_resources = new ArrayList<SOC.resource>();
+           m_devcards = new ArrayList<Card>();
+     
         switch(m_num)
         {
             case 1:
