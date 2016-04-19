@@ -18,6 +18,7 @@ public interface BoardInterface
     public int resourceCount(SOC.resource r);
     public ArrayList<SOC.Junction> availableJunctions(SOC.resource r);
     public ArrayList<SOC.Junction> availableJunctions(int n);
+    public ArrayList<SOC.Junction> availableJunctionsHeuristic();
     public String myName();
     public void buyCard();
 }
