@@ -102,6 +102,41 @@ public class Board implements BoardInterface
         }
         return ret;
     }
+    
+    public ArrayList<SOC.Junction> availableJunctionsHeuristic()
+    {
+            int[] heuristic = new int[55];
+            ArrayList<SOC.Junction> ret = new ArrayList<SOC.Junction>();
+            for(int i = 0; i < m_junctions.size(); i++)
+            {
+                for(int j = 0; j < m_junctions.get(i).address.length; j++)
+                {
+                    if((m_tiles[m_junctions.get(i).address[j]].resource() == SOC.resource.WOOD) || (m_tiles[m_junctions.get(i).address[j]].resource() == SOC.resource.BRICK))
+                        heuristic[i] += 2;
+                    if((m_tiles[m_junctions.get(i).address[j]].resource() == SOC.resource.WHEAT) || (m_tiles[m_junctions.get(i).address[j]].resource() == SOC.resource.SHEEP))
+                        heuristic[i] += 1;
+                    if((m_tiles[m_junctions.get(i).address[j]].number() == 6) || (m_tiles[m_junctions.get(i).address[j]].number() == 8))
+                        heuristic[i] += 1;
+                }
+            }
+
+            for(int k = 0; k < m_junctions.size() - 1; k++)
+            {
+                for(int l = 0; l < m_junctions.get(k).address.length; l++)
+                {
+                    if(m_junctions.get(k).canBuild(m_players[m_currentPlayer]))
+                    {
+                        if(heuristic[k] > heuristic[k + 1])
+                        {
+                            ret.add(m_junctions.get(k));
+                            l = m_junctions.get(k).m_tiles.length - 1;
+                        }
+                    }
+                }
+            }
+            return ret;
+    }
+
 
     public ArrayList<SOC.Road> availableRoads() 
     {
