@@ -230,22 +230,22 @@ public class SOC
         {
             ArrayList<Road> ret = new ArrayList<Road>();
             int[] roadTiles = new int[2];
-            location[] locations;
+            location[] tmplocations;
 
             roadTiles[0] = address[0];
             roadTiles[1] = address[1];
-            locations = findLocations(roadTiles);
-            ret.add(new Road(m_tiles, address[0], locations[0], locations[1]));
+            tmplocations = findLocations(roadTiles);
+            ret.add(new Road(m_tiles, address[0], tmplocations[0], tmplocations[1]));
 
             roadTiles[0] = address[0];
             roadTiles[1] = address[2];
-            locations = findLocations(roadTiles);
-            ret.add(new Road(m_tiles, address[0], locations[0], locations[1]));
+            tmplocations = findLocations(roadTiles);
+            ret.add(new Road(m_tiles, address[0], tmplocations[0], tmplocations[1]));
 
             roadTiles[0] = address[1];
             roadTiles[1] = address[2];
-            locations = findLocations(roadTiles);
-            ret.add(new Road(m_tiles, address[0], locations[0], locations[1]));
+            tmplocations = findLocations(roadTiles);
+            ret.add(new Road(m_tiles, address[0], tmplocations[0], tmplocations[1]));
 
             return ret;
         }
