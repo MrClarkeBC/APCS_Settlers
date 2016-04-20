@@ -180,7 +180,10 @@ public class SOC
             for (int i = 0; i < roads().size();i++)
             {
                 if (roads().get(i).owner() == p)
+                {
+                    System.out.println(roads().get(i) + " owned by " + p);
                     bOwnsRoad = true;
+                }
             }
             if (!bOwnsRoad)
                 return false;
