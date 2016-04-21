@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.params=b
+comment0.target=SOC.Junction\ placeFirstSettlement(BoardInterface)
+comment1.params=b
+comment1.target=SOC.Junction\ placeFirstRoad(BoardInterface)
+comment10.params=
+comment10.target=int\ placeRobber()
+comment11.params=names
+comment11.target=int\ stealResource(java.lang.String[])
+comment2.params=b
+comment2.target=SOC.Junction\ placeSecondSettlement(BoardInterface)
+comment3.params=b
+comment3.target=SOC.Road\ placeSecondRoad(BoardInterface)
+comment4.params=b
+comment4.target=void\ prioritizeResources(BoardInterface)
+comment5.params=b\ j
+comment5.target=int\ rankJunction(BoardInterface,\ SOC.Junction)
+comment6.params=b
+comment6.target=void\ playertrade(BoardInterface)
+comment7.params=array
+comment7.target=int\ findLargest(int[])
+comment8.params=b
+comment8.target=void\ populateArray(BoardInterface)
+comment9.params=b
+comment9.target=void\ takeTurn(BoardInterface)
+numComments=12

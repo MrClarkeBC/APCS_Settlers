@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=b
+comment0.target=SOC.Junction\ placeFirstSettlement(BoardInterface)
+comment1.params=b
+comment1.target=SOC.Junction\ placeFirstRoad(BoardInterface)
+comment2.params=b
+comment2.target=SOC.Junction\ placeSecondSettlement(BoardInterface)
+comment3.params=b
+comment3.target=SOC.Road\ placeSecondRoad(BoardInterface)
+comment4.params=b
+comment4.target=void\ takeTurn(BoardInterface)
+comment5.params=b
+comment5.target=void\ prioritizeResources(BoardInterface)
+comment6.params=b
+comment6.target=int[]\ scoreJunctions(BoardInterface)
+comment7.params=
+comment7.target=int\ placeRobber()
+comment8.params=names
+comment8.target=int\ stealResource(java.lang.String[])
+numComments=9

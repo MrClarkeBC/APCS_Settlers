@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.params=b
+comment0.target=SOC.Junction\ heuristicThis(BoardInterface)
+comment1.params=b
+comment1.target=int\ myRoads(BoardInterface)
+comment10.params=names
+comment10.target=int\ stealResource(java.lang.String[])
+comment2.params=b
+comment2.target=int\ mySettlements(BoardInterface)
+comment3.params=b
+comment3.target=SOC.Junction\ placeFirstSettlement(BoardInterface)
+comment4.params=b
+comment4.target=SOC.Junction\ placeFirstRoad(BoardInterface)
+comment5.params=b
+comment5.target=SOC.Junction\ placeSecondSettlement(BoardInterface)
+comment6.params=b
+comment6.target=SOC.Road\ placeSecondRoad(BoardInterface)
+comment7.params=b
+comment7.target=void\ takeTurn(BoardInterface)
+comment8.params=b
+comment8.target=void\ prioritizeResources(BoardInterface)
+comment9.params=
+comment9.target=int\ placeRobber()
+numComments=11

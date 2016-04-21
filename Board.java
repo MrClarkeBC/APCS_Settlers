@@ -225,6 +225,12 @@ public class Board implements BoardInterface
                 int temp = (int) (Math.floor(Math.random() * 6) + 1) +
                     (int) (Math.floor(Math.random() * 6) + 1);
                 System.out.println("Rolled: " + temp);
+                // If 7 rolled, take resources
+                if (temp == 7)
+                {
+                    
+                }
+                // move Robber
                 for (Tile t : m_tiles)
                 {
                     t.roll(temp);
@@ -299,8 +305,12 @@ public class Board implements BoardInterface
     {
         try
         {
-//            if (tiles[1] == 0)
-                // place robber on tiles[0]
+            if (tiles[1] == 0)
+            {
+                m_robber.newLocation(tiles[0]);
+                return;
+            }
+
             if (tiles[2] == 0)
                 findRoad(tiles).build(currentPlayer());
             else

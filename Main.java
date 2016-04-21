@@ -24,8 +24,8 @@ public class Main extends JPanel
 
     public Main() 
     {
-        m_board.addPlayer(new Player("Bob"), new SimpleStrategy());
-        m_board.addPlayer(new Player("Joe"));
+        m_board.addPlayer(new Player("Zephyr"), new Sheeple());
+        m_board.addPlayer(new Player("Trent"), new HitTheBricks());
         m_board.addPlayer(new Player("Sue"));
         m_board.addPlayer(new Player("Amber"));
         add(jButton1);
