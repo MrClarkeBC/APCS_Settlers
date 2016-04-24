@@ -1,4 +1,4 @@
 # APCS_Settlers
-Repository for class settlers project. xx
+Repository for class settlers project. 
 ᕗ 
 
