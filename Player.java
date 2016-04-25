@@ -13,6 +13,7 @@ class Player extends Polygon
     int m_num;
     Color m_color;
     private int vp;
+    int m_armies;
     int m_settlements;
     int m_cities;
     int m_roads;
@@ -117,6 +118,12 @@ class Player extends Polygon
         g.drawString(text, x + 5, y + 10);
         text = String.format("%s:%d","VP",vp);
         g.drawString(text, x + 5, y + offset);
+
+        offset += 20;
+        text = String.format("%s:%d","Armies",m_armies);
+        g.drawString(text, x + 5, y + offset);
+
+        
         for(SOC.resource r : SOC.resource.values())
         {
             if (r != SOC.resource.EMPTY && r != SOC.resource.DESERT && r != SOC.resource.PORTORE && r != SOC.resource.PORTSHEEP && r != SOC.resource.PORTWHEAT && r != SOC.resource.PORTBRICK && r != SOC.resource.PORTWOOD && r != SOC.resource.PORTANY)
@@ -313,7 +320,13 @@ class Player extends Polygon
 
     public void takeDevCard(Card dc)
     {
-        m_devcards.add(dc);
+        if (dc.getType() == SOC.DEVCARDS.VPOINT)
+            vp++;
+            
+        if (dc.getType() == SOC.DEVCARDS.KNIGHT)
+            m_armies++;
+        else
+            m_devcards.add(dc);
     }
 
     int numSettlements()
