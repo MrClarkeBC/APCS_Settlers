@@ -20,4 +20,5 @@ public interface BoardInterface
     public ArrayList<SOC.Junction> availableJunctions(int n);
     public String myName();
     public void buyCard();
+    public void removeResource(SOC.resource s);
 }

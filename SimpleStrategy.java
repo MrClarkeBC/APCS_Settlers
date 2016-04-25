@@ -44,5 +44,8 @@ public class SimpleStrategy implements PlayerStrategy
     {
         return 0; // return which player to steal from
     }
+    public void robbed()
+    {
+    }
 
 }

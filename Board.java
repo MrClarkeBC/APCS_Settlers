@@ -13,7 +13,7 @@ public class Board implements BoardInterface
     private int m_turn = 1;
     private SOC.Junction m_lastJunction;
     Deck developmentCards = new Deck();
-    private Robber m_robber;
+    private Robber m_robber = new Robber(-1);
     int m_wood = 4;
     int m_wheat = 4;
     int m_desert = 1;
@@ -138,11 +138,12 @@ public class Board implements BoardInterface
     public String OwnerName(int n, SOC.location loc, SOC.location loc2) { return tiles()[n].owner(loc, loc2).getName();};
 
     public String myName() { return currentPlayer().getName();};
+
     public boolean trade(SOC.resource r1, SOC.resource r2)
     {
         return currentPlayer().trade(r1, r2);
     }
-    
+
     public int placeRobber()
     {
         return m_strategies[m_currentPlayer].placeRobber();
@@ -152,6 +153,12 @@ public class Board implements BoardInterface
     {
         return m_strategies[m_currentPlayer].stealResource(playerNames);
     }
+
+    public void removeResource(SOC.resource r)
+    {
+        currentPlayer().removeResource(r);
+    }
+
     public void addPlayer(Player p, PlayerStrategy s)
     {
         if (numPlayers < 4)
@@ -228,14 +235,30 @@ public class Board implements BoardInterface
                 // If 7 rolled, take resources
                 if (temp == 7)
                 {
-                    
+                    PlayerStrategy ps;
+                    for (int i = 0;i < numPlayers;i++)
+                    {
+                        ps = m_strategies[i];
+                        if (ps != null)
+                        {
+                            ps.robbed();
+                        }
+                        m_players[i].robbed();
+                    }
+                    // Place Robber
+                    ps = m_strategies[m_currentPlayer];
+                    if (ps != null)
+                        m_robber.newLocation(ps.placeRobber());
+                    else
+                        m_robber.newLocation((int) (Math.floor(Math.random() * 5) + 16));
+
                 }
-                // move Robber
-                for (Tile t : m_tiles)
+                for (int i = 0; i < m_tiles.length; i++)
                 {
-                    t.roll(temp);
-                    m_temp = temp;
+                    if (m_robber.getLocation() != i)
+                        m_tiles[i].roll(temp);
                 }
+                m_temp = temp;
             }
         }
 
@@ -486,7 +509,7 @@ public class Board implements BoardInterface
         // draw tiles
         for (int i=0;i < m_tiles.length; i++)
         {
-            m_tiles[i].draw(g2d, 0, true);
+            m_tiles[i].draw(g2d, 0, (m_robber.getLocation() != i));
         }
 
         // draw players
@@ -506,7 +529,7 @@ public class Board implements BoardInterface
         {
             m_roads.get(i).draw(g2d);
         }
-
+        
         g.setColor(tmpC);
 
     }

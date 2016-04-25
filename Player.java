@@ -35,8 +35,8 @@ class Player extends Polygon
         m_boardWidth = width;
         m_boardHeight = height;
         m_resources = new ArrayList<SOC.resource>();
-           m_devcards = new ArrayList<Card>();
-     
+        m_devcards = new ArrayList<Card>();
+
         switch(m_num)
         {
             case 1:
@@ -62,8 +62,8 @@ class Player extends Polygon
     public String toString()
     {
         String s = m_name;// + " resources:\n";
-//        for(SOC.resource r : m_resources)
-  //          s += r + "\n";
+        //        for(SOC.resource r : m_resources)
+        //          s += r + "\n";
         return s;
     }
 
@@ -257,6 +257,50 @@ class Player extends Polygon
         if (numResource(s) > 0)
             m_resources.remove(s);
 
+    }
+
+    void robbed()
+    {
+        int totalCount = 0;
+        totalCount += numResource(SOC.resource.SHEEP);
+        totalCount += numResource(SOC.resource.ORE);
+        totalCount += numResource(SOC.resource.WHEAT);
+        totalCount += numResource(SOC.resource.WOOD);
+        totalCount += numResource(SOC.resource.BRICK);
+
+        if (totalCount > 7)
+        {
+            while (totalCount > 3 && numResource(SOC.resource.SHEEP) > 0)
+            {
+                totalCount--;
+                removeResource(SOC.resource.SHEEP);
+            }
+
+            while (totalCount > 3 && numResource(SOC.resource.ORE) > 0)
+            {
+                totalCount--;
+                removeResource(SOC.resource.ORE);
+            }
+
+            while (totalCount > 3 && numResource(SOC.resource.WHEAT) > 0)
+            {
+                totalCount--;
+                removeResource(SOC.resource.WHEAT);
+            }
+
+            while (totalCount > 3 && numResource(SOC.resource.WOOD) > 0)
+            {
+                totalCount--;
+                removeResource(SOC.resource.WOOD);
+            }
+
+            while (totalCount > 3 && numResource(SOC.resource.BRICK) > 0)
+            {
+                totalCount--;
+                removeResource(SOC.resource.BRICK);
+            }
+
+        }
     }
 
     int numResource(SOC.resource s)
