@@ -61,9 +61,9 @@ class Player extends Polygon
 
     public String toString()
     {
-        String s = m_name + " resources:\n";
-        for(SOC.resource r : m_resources)
-            s += r + "\n";
+        String s = m_name;// + " resources:\n";
+//        for(SOC.resource r : m_resources)
+  //          s += r + "\n";
         return s;
     }
 
@@ -247,7 +247,7 @@ class Player extends Polygon
 
     public void collectResources(SOC.resource r, int count)
     {
-        System.out.println(m_name + " got " + count + " " + r);
+        //System.out.println(m_name + " got " + count + " " + r);
         for (int i = 0;i<count; i++)
             m_resources.add(r);
     }

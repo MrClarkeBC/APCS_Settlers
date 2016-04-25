@@ -177,11 +177,11 @@ public class SOC
 
             // Check that at least one road is owned by player
             boolean bOwnsRoad = (p.numSettlements() < 2);
-            for (int i = 0; i < roads().size();i++)
+            for (int i = 0; i < 3;i++)
             {
                 if (roads().get(i).owner() == p)
                 {
-                    System.out.println(roads().get(i) + " owned by " + p);
+                    //System.out.println(this + " " + roads().get(i) + " owned by " + p);
                     bOwnsRoad = true;
                 }
             }
@@ -238,6 +238,7 @@ public class SOC
             roadTiles[0] = address[0];
             roadTiles[1] = address[1];
             tmplocations = findLocations(roadTiles);
+
             ret.add(new Road(m_tiles, address[0], tmplocations[0], tmplocations[1]));
 
             roadTiles[0] = address[0];
@@ -248,7 +249,7 @@ public class SOC
             roadTiles[0] = address[1];
             roadTiles[1] = address[2];
             tmplocations = findLocations(roadTiles);
-            ret.add(new Road(m_tiles, address[0], tmplocations[0], tmplocations[1]));
+            ret.add(new Road(m_tiles, address[1], tmplocations[0], tmplocations[1]));
 
             return ret;
         }
