@@ -351,6 +351,29 @@ public class Board implements BoardInterface
         {
             m_players[m_currentPlayer].build(SOC.buildType.DEVCARD);
             m_players[m_currentPlayer].takeDevCard(drawDevelopmentCard());
+            
+            int numToBeat = 2;
+            Player largest = null;
+            for (Player p : m_players)
+            {
+                if (p.largestArmy())
+                {
+                    numToBeat = p.numKnights();
+                    largest = p;
+                }
+            }
+            for (Player p : m_players)
+            {
+                if (p.numKnights() > numToBeat)
+                {
+                    if (largest != null)
+                        largest.setLargestArmy(false);
+                    p.setLargestArmy(true);
+                }
+                    
+            }
+            
+                
         }
     }
 

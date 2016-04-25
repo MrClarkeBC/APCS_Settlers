@@ -26,7 +26,7 @@ public class Main extends JPanel
     {
         m_board.addPlayer(new Player("Zephyr"), new Sheeple());
         m_board.addPlayer(new Player("Trent"), new HitTheBricks());
-        m_board.addPlayer(new Player("Sue"));
+        m_board.addPlayer(new Player("Sue"), new SimpleStrategy());
         m_board.addPlayer(new Player("Amber"));
         add(jButton1);
         add(jButton2);
@@ -36,7 +36,7 @@ public class Main extends JPanel
         jButton1.setMargin(new Insets(2, 2, 2, 2));
         jButton1.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent evt){jButton1_ActionPerformed(evt);}});
         jButton2.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent evt){trade(evt);}});
-        jButton2.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent evt){buy(evt);}});
+        jButton3.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent evt){buy(evt);}});
         jButton1.setBackground(m_board.currentPlayer().getColor());
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         addMouseListener(new HitTestAdapter());

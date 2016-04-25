@@ -13,7 +13,8 @@ class Player extends Polygon
     int m_num;
     Color m_color;
     private int vp;
-    int m_armies;
+    int m_knights;
+    boolean m_largest;
     int m_settlements;
     int m_cities;
     int m_roads;
@@ -116,11 +117,11 @@ class Player extends Polygon
 
         int offset = 30;
         g.drawString(text, x + 5, y + 10);
-        text = String.format("%s:%d","VP",vp);
+        text = String.format("%s:%d","VP" + (largestArmy()?"*":""),vp + (largestArmy()?2:0));
         g.drawString(text, x + 5, y + offset);
 
         offset += 20;
-        text = String.format("%s:%d","Armies",m_armies);
+        text = String.format("%s:%d","Knights",m_knights);
         g.drawString(text, x + 5, y + offset);
 
         
@@ -219,9 +220,9 @@ class Player extends Polygon
             }
             break;
             case DEVCARD:
-            if (numResource(SOC.resource.ORE) > 1 
-            && (numResource(SOC.resource.WHEAT) > 1)
-            && (numResource(SOC.resource.SHEEP) > 1))
+            if (numResource(SOC.resource.ORE) > 0 
+            && (numResource(SOC.resource.WHEAT) > 0)
+            && (numResource(SOC.resource.SHEEP) > 0))
             {
 
                 return true;
@@ -309,6 +310,12 @@ class Player extends Polygon
 
         }
     }
+    
+    int numKnights() { return m_knights; }
+    
+    void setLargestArmy(boolean bHasIt) { m_largest = bHasIt; };
+    
+    boolean largestArmy() { return m_largest;};
 
     int numResource(SOC.resource s)
     {
@@ -324,7 +331,7 @@ class Player extends Polygon
             vp++;
             
         if (dc.getType() == SOC.DEVCARDS.KNIGHT)
-            m_armies++;
+            m_knights++;
         else
             m_devcards.add(dc);
     }
