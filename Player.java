@@ -276,33 +276,34 @@ class Player extends Polygon
         totalCount += numResource(SOC.resource.WOOD);
         totalCount += numResource(SOC.resource.BRICK);
 
+        int newCount = totalCount/2;
         if (totalCount > 7)
         {
-            while (totalCount > 3 && numResource(SOC.resource.SHEEP) > 0)
+            while (totalCount > newCount && numResource(SOC.resource.SHEEP) > 0)
             {
                 totalCount--;
                 removeResource(SOC.resource.SHEEP);
             }
 
-            while (totalCount > 3 && numResource(SOC.resource.ORE) > 0)
+            while (totalCount > newCount && numResource(SOC.resource.ORE) > 0)
             {
                 totalCount--;
                 removeResource(SOC.resource.ORE);
             }
 
-            while (totalCount > 3 && numResource(SOC.resource.WHEAT) > 0)
+            while (totalCount > newCount && numResource(SOC.resource.WHEAT) > 0)
             {
                 totalCount--;
                 removeResource(SOC.resource.WHEAT);
             }
 
-            while (totalCount > 3 && numResource(SOC.resource.WOOD) > 0)
+            while (totalCount > newCount && numResource(SOC.resource.WOOD) > 0)
             {
                 totalCount--;
                 removeResource(SOC.resource.WOOD);
             }
 
-            while (totalCount > 3 && numResource(SOC.resource.BRICK) > 0)
+            while (totalCount > newCount && numResource(SOC.resource.BRICK) > 0)
             {
                 totalCount--;
                 removeResource(SOC.resource.BRICK);
